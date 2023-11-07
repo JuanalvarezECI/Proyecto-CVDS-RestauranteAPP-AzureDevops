@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
+<body>
+<main>
+    <h2 class="display-6 text-center mb-4">To Do Item</h2>
+    <div class="table-responsive">
+        <table class="table table-info">
+            <thead>
+            <tr>
+                <th scope="col">Property</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">id</th>
+                <td><p th:text="${toDoItem.id}"/></td>
+            </tr>
+            <tr>
+                <th scope="row">user id</th>
+                <td><p th:text="${toDoItem.userId}"/></td>
+            </tr>
+            <tr>
+                <th scope="row">title</th>
+                <td><p th:text="${toDoItem.title}"/></td>
+            </tr>
+            <tr>
+                <th scope="row">completed</th>
+                <td><p th:text="${toDoItem.completed}"/></td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</main>
+<footer th:replace="fragments/general::empty-footer"></footer>
+</body>
+</html>

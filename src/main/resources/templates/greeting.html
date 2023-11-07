@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="fragments/general.html::headerfiles('Greeting Page')"></th:block>
+<body>
+<main>
+    <h1 th:text="'Hello, ' + ${name} + '!'"/>
+</main>
+<footer th:replace="fragments/general::empty-footer"></footer>
+</body>
+</html>

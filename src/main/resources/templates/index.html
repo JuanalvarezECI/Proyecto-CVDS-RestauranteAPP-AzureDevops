@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="fragments/general.html::headerfiles('Greeting Page')"></th:block>
+<body>
+<main>
+    <h1 class="visually-hidden">Welcome Oculto</h1>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold text-body-emphasis">Welcome</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">This is a demo of Bootstrap CSS, for more examples to <a href="https://getbootstrap.com/docs/5.3/examples/">https://getbootstrap.com/docs/5.3/examples/</a></p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/greeting?name=Jorge">Go to Greeting</a>
+                <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/to-do-item/1">Go to "To Do" Table</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/general::empty-footer"></footer>
+</body>
+</html>

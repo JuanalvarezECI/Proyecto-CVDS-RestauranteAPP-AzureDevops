@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
+<body>
+<header th:replace="fragments/general::header"></header>
+<main>
+    <h1 th:text="'Gran premio: ' + ${premio} + '!'"/>
+</main>
+<footer th:replace="fragments/general::footer"></footer>
+</body>
+</html>
