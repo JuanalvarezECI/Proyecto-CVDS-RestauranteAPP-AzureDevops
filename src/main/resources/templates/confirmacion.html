@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmación de Pedido</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #4e0e00);
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .dialog-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            width: 600px; /* Ajusta el ancho según tu preferencia */
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffd700;
+        }
+
+        p {
+            color: #ffd700;
+            font-size: 1.6em;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="dialog-box">
+    <h1>¡Confirmación de Pedido!</h1>
+    <p>Gracias por realizar tu pedido de <span th:text="${plato}"></span>.</p>
+    <p>Tu número de ticket es: <span th:text="${numeroTicket}"></span></p>
+    <p>Con el siguiente ticket podrás reclamar tu almuerzo y pagar en caja. Estará listo cuando llegues.</p>
+</div>
+</body>
+</html>

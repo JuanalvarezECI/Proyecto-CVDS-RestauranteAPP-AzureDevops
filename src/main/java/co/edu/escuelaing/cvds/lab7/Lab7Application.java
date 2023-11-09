@@ -24,7 +24,7 @@ public class Lab7Application {
 			userService.guardarUsuarios();
 			//userService.guardarPais();
 			System.out.println("agregando menus....");
-			menuService.guardarMenus();
+			//menuService.guardarMenus();
 		};
 	}
 }
