@@ -1,4 +1,5 @@
 package co.edu.escuelaing.cvds.lab7.controller;
+import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.model.User;
 import co.edu.escuelaing.cvds.lab7.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +15,21 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-
     @GetMapping
     public String showLoginPage() {
         return "login";
     }
 
     @PostMapping
-    public String login(String username, String password, Model model) {
+    public String login(String username, String password,String plato, Model model) {
         User user = userService.findUserByUsername(username);
         System.out.println(user);
         if (user != null && user.getPassword().equals(password)) {
-            // Autenticación exitosa
+            //Autenticación exitosa
             return "home"; // Redirige a la página de inicio
         }
         else {
-            // Autenticación fallida
+            //Autenticación fallida
             model.addAttribute("error", "Credenciales inválidas");
             return "login";
         }

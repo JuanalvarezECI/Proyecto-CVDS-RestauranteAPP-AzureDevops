@@ -6,8 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "pais")
+public class Pais {
     @Id
     @Column(name = "username")
     private String username;
@@ -18,9 +18,9 @@ public class User {
 
     private String correo;
 
-    public User(){
+    public Pais(){
     }
-    public User(String username, String password, String correo) {
+    public Pais(String username, String password, String correo) {
         this.username = username;
         this.password = password;
         this.correo = correo;
