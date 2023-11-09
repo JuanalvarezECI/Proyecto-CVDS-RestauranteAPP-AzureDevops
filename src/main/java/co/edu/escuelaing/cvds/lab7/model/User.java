@@ -14,19 +14,26 @@ public class User {
     @Column(name = "password")
 
     private String password;
+    @Column(name = "correo")
+
+    private String correo;
 
     public User(){
     }
-    public User(String username, String password) {
+    public User(String username, String password, String correo) {
         this.username = username;
         this.password = password;
+        this.correo = correo;
+
     }
 
     public String getUsername() {
+
         return username;
     }
 
     public String getPassword() {
+
         return password;
     }
 }

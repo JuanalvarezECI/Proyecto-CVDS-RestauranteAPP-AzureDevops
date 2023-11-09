@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #4c0c0c);
+                        background-attachment: fixed;
+
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            width: 300px; /* Ajusta el ancho según tu preferencia */
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffd700;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffd700;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #ffd700;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cca300;
+        }
+    </style>
 </head>
 <body>
-<h1>Login</h1>
 <form action="/login" method="post">
+    <h1>Login</h1>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required><br><br>
     <label for="password">Password:</label>
