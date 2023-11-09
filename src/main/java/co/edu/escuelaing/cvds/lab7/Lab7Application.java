@@ -1,6 +1,6 @@
 package co.edu.escuelaing.cvds.lab7;
 
-import co.edu.escuelaing.cvds.lab7.service.PlatoService;
+import co.edu.escuelaing.cvds.lab7.service.MenuService;
 import co.edu.escuelaing.cvds.lab7.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class Lab7Application {
 	@Autowired
 	UserService userService;
-	PlatoService platoService;
+	MenuService menuService;
 	public static void main(String[] args) {
 		SpringApplication.run(Lab7Application.class, args);
 	}
@@ -24,7 +24,7 @@ public class Lab7Application {
 			userService.guardarUsuarios();
 			//userService.guardarPais();
 			System.out.println("agregando menus....");
-			//userService.guardarMenus();
+			menuService.guardarMenus();
 		};
 	}
 }
