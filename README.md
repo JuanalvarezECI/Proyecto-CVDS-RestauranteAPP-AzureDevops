@@ -1,4 +1,2 @@
-# MVC + Bootstrap CSS
-
-## Structure Directory
-https://studygyaan.com/spring-boot/spring-boot-project-folder-structure-and-best-practices
+Sprint 2
+https://1drv.ms/p/s!AtHzbKOH_geviQP2iciWM4l5keV6?e=vkDszk
