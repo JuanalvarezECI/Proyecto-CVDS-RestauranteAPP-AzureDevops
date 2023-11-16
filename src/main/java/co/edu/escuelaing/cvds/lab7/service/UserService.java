@@ -11,9 +11,6 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-    MenuRepository menuRepository;
-
-
     public void guardarUsuarios(){
         User user1 = new User("demo1", "demo1","correo23");
         userRepository.save(user1);

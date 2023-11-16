@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>co.edu.escuelaing.cvds</groupId>
 	<artifactId>lab7</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.4-SNAPSHOT</version>
 	<name>lab7</name>
 	<description>Manejo de Data - ORM</description>
 	<properties>
