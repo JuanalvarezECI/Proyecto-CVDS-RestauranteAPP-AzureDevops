@@ -1,0 +1,150 @@
+<!-- prueba.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.35, maximum-scale=1.0, user-scalable=no">
+        <title>Restaurante</title>
+        <style>
+
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(to bottom, #000000, #4e0e00);
+                background-attachment: fixed;
+                color: #ffffff;
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                text-align: center; /* Centrar texto en el cuerpo */
+            }
+
+            h1, h2 {
+                color: #ffd700;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            table {
+                width: 60%;
+                margin: 40px auto;
+                border-collapse: collapse;
+                background-color: rgba(0, 0, 0, 0.7); /* Fondo opaco */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra */
+            }
+
+            th, td {
+                padding: 60px;
+                font-size: 1.5em;
+                text-align: left;
+                border-bottom: 1px solid #ffd700;
+            }
+
+            th {
+                background-color: #000000;
+                color: #ffd700;
+            }
+
+            button {
+                background-color: #ffd700;
+                color: #000000;
+                padding: 8px 15px;
+                font-size: 1em;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s; /* Agregamos transición suave al color de fondo */
+            }
+
+            button:hover {
+                background-color: #cca300; /* Cambiamos el color al hacer hover */
+            }
+
+            /* Estilos para el modal */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.7);
+            }
+
+            .modal-content {
+                background-color: #1a1a1a;
+                margin: 10% auto;
+                padding: 20px;
+                border: 1px solid #ffd700;
+                width: 60%;
+            }
+
+            /* Estilos para la página de confirmación */
+            h1, p {
+                text-align: center;
+            }
+
+            p {
+                margin-top: 20px;
+            }
+        </style>
+    <!-- Agrega tus estilos y otros encabezados aquí -->
+    <script>
+        function realizarPedido(plato) {
+            // Hacer una solicitud al servidor para realizar el pedido
+            fetch('/realizar-pedido/' + plato, { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    // Actualizar la tabla de tickets con el nuevo ticket
+                    var newRow = document.getElementById('ticketsTable').insertRow();
+                    var cell = newRow.insertCell(0);
+                    cell.innerHTML = data.plato;
+                });
+        }
+
+        function confirmarPedido(nombrePlato) {
+        var confirmacion = confirm("¿Estás seguro de realizar el pedido de " + nombrePlato + "?");
+        if (confirmacion) {
+            // Si se confirma, enviar el formulario
+            document.forms[0].submit(); // Puede necesitar ajustarse si hay múltiples formularios en la página
+        }
+}
+
+    </script>
+    </head>
+<body>
+<h1>Bienvenido al Restaurante</h1>
+<p>¿Qué deseas comer hoy?</p>
+
+<h2>Menú</h2>
+<table>
+    <tr>
+        <th>Plato</th>
+        <th>Precio (COP)</th>
+        <th>Unidades disponibles </th>
+        <th>Realizar Pedido</th>
+    <tr th:each="menuItem : ${menuItems}">
+    <td th:text="${menuItem.plato}"></td>
+    <td th:text="${menuItem.precio}"></td>
+    <td th:text="${menuItem.unidades}"></td>
+    <!-- Agregar un botón para realizar el pedido -->
+    <td>
+        <form th:action="@{/realizar-pedido}" method="post"
+              onsubmit="return confirm('¿Estás seguro de realizar el pedido?');"
+              th:if="${menuItem.unidades > 0}">
+            <input type="hidden" name="nombrePlato" th:value="${menuItem.plato}" />
+            <button type="submit">Realizar pedido</button>
+        </form>
+        <span th:if="${menuItem.unidades <= 0}">Unidades agotadas</span>
+    </td>
+    </tr>
+</table>
+</body>
+</html>
+
+
