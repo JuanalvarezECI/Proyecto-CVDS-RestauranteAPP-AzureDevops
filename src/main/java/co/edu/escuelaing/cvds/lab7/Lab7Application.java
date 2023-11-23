@@ -31,6 +31,7 @@ public class Lab7Application {
 			System.out.println("agregando menus....");
 			menuService.guardarMenus();
 			System.out.println("agregando menus....");
+			menuService.aplicarDescuento();
 		};
 	}
 }

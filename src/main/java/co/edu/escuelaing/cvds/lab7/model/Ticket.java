@@ -32,4 +32,8 @@ public class Ticket {
     public void setPlato(String plato) {
         this.plato = plato;
     }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }
