@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pedido</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #4e0e00);
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .dialog-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            width: 600px; /* Ajusta el ancho según tu preferencia */
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffd700;
+        }
+
+        p {
+            color: #ffd700;
+            font-size: 1.6em;
+            margin: 40px 0;
+        }
+    </style>
+    <!-- confirmacion.html -->
+    <body>
+    <h1>¡Confirmación de Pedido!</h1>
+    <p th:text="${mensaje}"></p>
+    <p>Tu número de ticket es: <span th:text="${id}"></span></p>
+    <p>Plato: <span th:text="${nombrePlato}"></span></p>
+    <p>Presentando este ticket en Caja-Web podrás recibir tu almuerzo y pagarlo de manera rápida y sencilla.</p>
+    </body>
+    </html>
+
