@@ -1,7 +1,9 @@
 package co.edu.escuelaing.cvds.lab7.model;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.*;
+import org.springframework.cglib.core.Local;
+import java.time.LocalDate;
 @Entity
 @Table(name = "menu")
 public class Menu {
@@ -10,12 +12,17 @@ public class Menu {
     @Column(name = "id")
     private Integer id;
     @Column(name = "plato")
+    @NotEmpty(message = "El campo 'plato' no puede estar vacío")
     private String plato;
     @Column(name = "precio")
+    @Positive(message = "El precio debe ser un número positivo")
     private Integer precio;
     @Column(name = "caducidad")
+    @NotEmpty(message = "El campo 'Caducidad' no puede estar vacío")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "El formato de 'caducidad' debe ser 'aaaa-mm-dd'")
     private String caducidad;
     @Column(name = "unidades")
+    @Positive(message = "Las unidades deben ser un número mayor a 0")
     private Integer unidades;
 
     public Menu() {
@@ -47,6 +54,18 @@ public class Menu {
     public Integer getUnidades() {
         return unidades;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public void setPlato(String plato) {this.plato = plato;}
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
+    }
+    public void setCaducidad(String caducidad) {
+        this.caducidad = caducidad;
+    }
+
     public void setUnidades(Integer unidades) {
         this.unidades = unidades;
     }

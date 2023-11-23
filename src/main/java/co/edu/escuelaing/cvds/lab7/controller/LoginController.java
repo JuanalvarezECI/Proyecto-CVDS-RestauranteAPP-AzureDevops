@@ -14,21 +14,27 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+
     @GetMapping
     public String showLoginPage() {
         return "login";
     }
 
     @PostMapping
-    public String login(String username, String password,String plato, Model model) {
+    public String login(String username, String password, String plato, Model model) {
         User user = userService.findUserByUsername(username);
         System.out.println(user);
         if (user != null && user.getPassword().equals(password)) {
-            //Autenticación exitosa
-            return "redirect:/prueba"; // Redirige a la página de inicio
-        }
-        else {
-            //Autenticación fallida
+            // Autenticación exitosa
+            if (username.endsWith(".jc")) {
+                // Si el nombre de usuario termina en ".jc", redirige a la página "cocina.html"
+                return "redirect:/cocina";
+            } else {
+                // De lo contrario, redirige a la página de inicio
+                return "redirect:/prueba";
+            }
+        } else {
+            // Autenticación fallida
             model.addAttribute("error", "Credenciales inválidas");
             return "login";
         }
