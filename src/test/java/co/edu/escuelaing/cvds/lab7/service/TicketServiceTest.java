@@ -1,21 +1,16 @@
 package co.edu.escuelaing.cvds.lab7.service;
-import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.model.Ticket;
-import co.edu.escuelaing.cvds.lab7.repository.MenuRepository;
 import co.edu.escuelaing.cvds.lab7.repository.TicketRepository;
-import co.edu.escuelaing.cvds.lab7.service.TicketService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import java.util.Arrays;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 public class TicketServiceTest {
 
     @InjectMocks
