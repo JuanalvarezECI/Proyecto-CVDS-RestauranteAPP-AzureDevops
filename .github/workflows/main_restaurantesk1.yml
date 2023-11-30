@@ -71,4 +71,4 @@ jobs:
           cache: maven
 
       - name: Test with Maven
-        run: mvn test -Dtest='!co.edu.escuelaing.cvds.lab7.Lab7ApplicationTests#contextLoads' jacoco:report -P coverage
+        run: mvn test -Dtest='!co.edu.escuelaing.cvds.lab7.Lab7ApplicationTests#contextLoads'
