@@ -43,6 +43,4 @@ public class UserServiceTest {
         // Verificamos que el método findByUsername del repositorio se haya llamado correctamente
         verify(userRepository, times(2)).findByUsername("juan.jc");
     }
-
-    // Puedes agregar más pruebas según sea necesario
 }

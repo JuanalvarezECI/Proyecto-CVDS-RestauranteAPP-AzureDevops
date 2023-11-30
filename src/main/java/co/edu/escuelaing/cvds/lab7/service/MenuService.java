@@ -70,10 +70,6 @@ public class MenuService {
         return menuRepository.findById(id).orElse(null);
     }
 
-    public void modificarMenu(Menu menu) {
-        menuRepository.save(menu);
-    }
-
     public void agregarPlatillo(Menu menu) {
 
         // Obtener la fecha actual
@@ -93,6 +89,9 @@ public class MenuService {
                 double descuento = 0.3; // 30%
                 Integer precioConDescuento = (int) (menu.getPrecio() * (1 - descuento));
                 menu.setPrecio(precioConDescuento);
+                menuRepository.save(menu);
+            }
+            else{
                 menuRepository.save(menu);
             }
         } catch (ParseException e) {
