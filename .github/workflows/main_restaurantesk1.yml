@@ -72,18 +72,3 @@ jobs:
 
       - name: Test with Maven
         run: mvn test -Dtest='!co.edu.escuelaing.cvds.lab7.Lab7ApplicationTests#contextLoads' jacoco:report -P coverage
-
-      - name: Analyze with SonarCloud
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: >
-          mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -Dsonar.host.url=https://sonarcloud.io
-          -Dsonar.organization=pdsw-eci
-          -Dsonar.projectKey=PDSW-ECI_spring-mvc-with-bootstrap
-          -Dsonar.java.coverage.reportPaths=target/site/jacoco-aggregate/jacoco.xml
-          -Dsonar.sources=src/
-          -Dsonar.test.exclusions=src/test/**
-          -Dsonar.tests=src/test/
-          -Dsonar.verbose=true
