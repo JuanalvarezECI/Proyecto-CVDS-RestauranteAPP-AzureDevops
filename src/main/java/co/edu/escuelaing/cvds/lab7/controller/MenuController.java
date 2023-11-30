@@ -1,6 +1,5 @@
 package co.edu.escuelaing.cvds.lab7.controller;
 import co.edu.escuelaing.cvds.lab7.model.Menu;
-import co.edu.escuelaing.cvds.lab7.model.Ticket;
 import co.edu.escuelaing.cvds.lab7.service.MenuService;
 import co.edu.escuelaing.cvds.lab7.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;

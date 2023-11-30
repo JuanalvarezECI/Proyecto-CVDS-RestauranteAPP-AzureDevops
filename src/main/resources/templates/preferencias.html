@@ -6,12 +6,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.35, maximum-scale=1.0, user-scalable=no">
-        <title>Restaurante</title>
+        <title>Cocina</title>
         <style>
 
             body {
                 font-family: Arial, sans-serif;
-                background: linear-gradient(to bottom, #000000, #4e0e00);
+                background: linear-gradient(to bottom, #000000, #00008B);
                 background-attachment: fixed;
                 color: #ffffff;
                 font-family: 'Arial', sans-serif;
@@ -30,8 +30,8 @@
             }
 
             table {
-                width: 60%;
-                margin: 40px auto;
+                width: 80%;
+                margin: 70px auto;
                 border-collapse: collapse;
                 background-color: rgba(0, 0, 0, 0.7); /* Fondo opaco */
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Sombra */
@@ -93,62 +93,26 @@
                 margin-top: 20px;
             }
         </style>
-    <!-- Agrega tus estilos y otros encabezados aquí -->
-    <script>
-        function realizarPedido(plato) {
-            // Hacer una solicitud al servidor para realizar el pedido
-            fetch('/realizar-pedido/' + plato, { method: 'POST' })
-                .then(response => response.json())
-                .then(data => {
-                    // Actualizar la tabla de tickets con el nuevo ticket
-                    var newRow = document.getElementById('ticketsTable').insertRow();
-                    var cell = newRow.insertCell(0);
-                    cell.innerHTML = data.plato;
-                });
-        }
-
-        function confirmarPedido(nombrePlato) {
-        var confirmacion = confirm("¿Estás seguro de realizar el pedido de " + nombrePlato + "?");
-        if (confirmacion) {
-            // Si se confirma, enviar el formulario
-            document.forms[0].submit(); // Puede necesitar ajustarse si hay múltiples formularios en la página
-        }
-}
-
-    </script>
     </head>
+</head>
 <body>
-<h1>Bienvenido al Restaurante</h1>
-<p>¿Qué deseas comer hoy?</p>
-
+<h1>Preferencias de Platillos</h1>
+<p>Estos son los platillos que los usuarios quisieran ver en el menu</p>
 <h2>Menú</h2>
 <table>
-    <a th:href="@{/formularioP}">
-        <button type="button">¿Tienes un plato en mente?, ayudanos a mejorar</button>
-    </a>
     <tr>
-        <th>Plato</th>
-        <th>Precio (COP)</th>
-        <th>Unidades disponibles </th>
-        <th>Realizar Pedido</th>
-    <tr th:each="menuItem : ${menuItems}">
-    <td th:text="${menuItem.plato}"></td>
-    <td th:text="${menuItem.precio}"></td>
-    <td th:text="${menuItem.unidades}"></td>
-    <!-- Agregar un botón para realizar el pedido -->
-    <td>
-        <form th:action="@{/realizar-pedido}" method="post"
-              onsubmit="return confirm('¿Estás seguro de realizar el pedido?');"
-              th:if="${menuItem.unidades > 0}">
-            <input type="hidden" name="nombrePlato" th:value="${menuItem.plato}" />
-            <button type="submit">Realizar pedido</button>
-        </form>
-        <span th:if="${menuItem.unidades <= 0}">Unidades agotadas</span>
-    </td>
+        <th>Nombre del Plato</th>
+        <th>Descripción</th>
+        <!-- Agrega más columnas según tus atributos de Preferencias -->
+    </tr>
+    <tr th:each="preferencia : ${preferencias}">
+        <td th:text="${preferencia.plato}"></td>
+        <td th:text="${preferencia.descripcion}"></td>
+        <!-- Agrega más celdas según tus atributos de Preferencias -->
     </tr>
 </table>
-
+<a th:href="@{/cocina}">
+    <button type="button">Volver a la cocina</button>
+</a>
 </body>
 </html>
-
-

@@ -2,6 +2,7 @@ package co.edu.escuelaing.cvds.lab7;
 
 import co.edu.escuelaing.cvds.lab7.model.Ticket;
 import co.edu.escuelaing.cvds.lab7.service.MenuService;
+import co.edu.escuelaing.cvds.lab7.service.PreferenciasService;
 import co.edu.escuelaing.cvds.lab7.service.TicketService;
 import co.edu.escuelaing.cvds.lab7.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class Lab7Application {
 	MenuService menuService;
 	@Autowired
 	TicketService ticketService;
+	@Autowired
+	PreferenciasService preferenciasService;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(Lab7Application.class, args);
@@ -32,6 +36,8 @@ public class Lab7Application {
 			menuService.guardarMenus();
 			System.out.println("agregando menus....");
 			menuService.aplicarDescuento();
+			System.out.println("agregando preferencias....");
+			preferenciasService.preferenciasprueba();
 		};
 	}
 }

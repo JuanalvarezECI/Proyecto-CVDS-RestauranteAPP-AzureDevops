@@ -22,7 +22,6 @@ public class Menu {
     @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "El formato de 'caducidad' debe ser 'aaaa-mm-dd'")
     private String caducidad;
     @Column(name = "unidades")
-    @Positive(message = "Las unidades deben ser un número mayor a 0")
     private Integer unidades;
 
     public Menu() {

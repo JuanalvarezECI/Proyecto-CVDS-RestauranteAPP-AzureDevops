@@ -2,6 +2,7 @@ package co.edu.escuelaing.cvds.lab7.controller;
 import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.model.User;
 import co.edu.escuelaing.cvds.lab7.service.MenuService;
+import co.edu.escuelaing.cvds.lab7.service.PreferenciasService;
 import co.edu.escuelaing.cvds.lab7.service.TicketService;
 import co.edu.escuelaing.cvds.lab7.service.UserService;
 import jakarta.validation.Valid;
@@ -16,9 +17,13 @@ import java.util.List;
 @Controller
 public class CocinaController {
     private final MenuService menuService;
+    private final PreferenciasService preferenciasService;
+
     @Autowired
-    public CocinaController(MenuService menuService) {
+    public CocinaController(MenuService menuService , PreferenciasService preferenciasService) {
+
         this.menuService = menuService;
+        this.preferenciasService = preferenciasService;
     }
     @GetMapping("/cocina")
     public String Cocina(Model model) {
@@ -41,7 +46,7 @@ public class CocinaController {
             model.addAttribute("error", "Revise los campos ingresados");
             return "formulario";
         }
-        menuService.modificarMenu(menuForm);
+        menuService.agregarPlatillo(menuForm);
         return "redirect:/cocina";
     }
     @GetMapping("/nuevo-platillo")
@@ -60,6 +65,11 @@ public class CocinaController {
         }
         menuService.agregarPlatillo(menuForm);
         return "redirect:/cocina";
+    }
+    @GetMapping("/preferencias")
+    public String mostrarPreferencias(Model model) {
+        model.addAttribute("preferencias", preferenciasService.obtenerTodasLasPreferencias());
+        return "preferencias";
     }
 
 }
