@@ -80,8 +80,8 @@ jobs:
         run: >
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.host.url=https://sonarcloud.io
-          -Dsonar.organization=pdsw-eci
-          -Dsonar.projectKey=PDSW-ECI_spring-mvc-with-bootstrap
+          -Dsonar.organization=juanalvarezeci
+          -Dsonar.projectKey=JuanalvarezECI_proyecto-cvds
           -Dsonar.java.coverage.reportPaths=target/site/jacoco-aggregate/jacoco.xml
           -Dsonar.sources=src/
           -Dsonar.test.exclusions=src/test/**
