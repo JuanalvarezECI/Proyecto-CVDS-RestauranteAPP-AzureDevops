@@ -1,7 +1,7 @@
 <!-- prueba.html -->
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es-ES">
 <head>
     <head>
         <meta charset="UTF-8">
@@ -14,7 +14,6 @@
                 background: linear-gradient(to bottom, #000000, #008000);
                 background-attachment: fixed;
                 color: #ffffff;
-                font-family: 'Arial', sans-serif;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -24,11 +23,6 @@
             h1, h2 {
                 color: #ffd700;
             }
-
-            p {
-                font-size: 1.2em;
-            }
-
             table {
                 width: 80%;
                 margin: 70px auto;
@@ -87,13 +81,12 @@
             /* Estilos para la página de confirmación */
             h1, p {
                 text-align: center;
-            }
-
-            p {
                 margin-top: 20px;
+                font-size: 1.2em;
             }
         </style>
     </head>
+    <title></title>
 </head>
 <body>
 <h1>Bienvenido a la cocina</h1>
@@ -101,6 +94,7 @@
 
 <h2>Menú</h2>
 <table>
+    <caption>tabla de platillos actuales</caption>
     <a th:href="@{/preferencias}">
         <button type="button">Visualizar las sugerencias de platos</button>
     </a>

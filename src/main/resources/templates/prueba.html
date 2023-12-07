@@ -1,7 +1,7 @@
 <!-- prueba.html -->
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es-ES">
 <head>
     <head>
         <meta charset="UTF-8">
@@ -14,7 +14,6 @@
                 background: linear-gradient(to bottom, #000000, #4e0e00);
                 background-attachment: fixed;
                 color: #ffffff;
-                font-family: 'Arial', sans-serif;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -23,10 +22,6 @@
 
             h1, h2 {
                 color: #ffd700;
-            }
-
-            p {
-                font-size: 1.2em;
             }
 
             table {
@@ -84,14 +79,13 @@
                 width: 60%;
             }
 
-            /* Estilos para la página de confirmación */
-            h1, p {
-                text-align: center;
-            }
+/* Estilos para la página de confirmación */
+h1, p {
+text-align: center;
+margin-top: 20px;
+font-size: 1.2em;
+}
 
-            p {
-                margin-top: 20px;
-            }
         </style>
     <!-- Agrega tus estilos y otros encabezados aquí -->
     <script>
@@ -117,12 +111,14 @@
 
     </script>
     </head>
+    <title></title>
 <body>
 <h1>Bienvenido al Restaurante</h1>
 <p>¿Qué deseas comer hoy?</p>
 
 <h2>Menú</h2>
 <table>
+    <caption>tabla de platillos actuales</caption>
     <a th:href="@{/formularioP}">
         <button type="button">¿Tienes un plato en mente?, ayudanos a mejorar</button>
     </a>

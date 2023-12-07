@@ -38,7 +38,7 @@ public class MenuServiceTest {
     }
 
     @Test
-    public void testRealizarPedido_UnidadesAgotadas() {
+    public void testRealizarPedidoUnidadesAgotadas() {
         // Simulamos un menú con unidades agotadas
         Menu menu = new Menu("Prueba", 100, "2023-12-31", 0);
         when(menuRepository.findByPlato("Prueba")).thenReturn(menu);

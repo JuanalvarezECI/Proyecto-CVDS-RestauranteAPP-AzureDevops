@@ -1,7 +1,5 @@
 package co.edu.escuelaing.cvds.lab7.service;
-import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.model.User;
-import co.edu.escuelaing.cvds.lab7.repository.MenuRepository;
 import co.edu.escuelaing.cvds.lab7.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +20,6 @@ public class UserService {
     }
     public User findUserByUsername(String username) {
         List<User> users = userRepository.findByUsername(username);
-        System.out.println("users" + users);
         if (users.isEmpty()) {
             return null;
         }

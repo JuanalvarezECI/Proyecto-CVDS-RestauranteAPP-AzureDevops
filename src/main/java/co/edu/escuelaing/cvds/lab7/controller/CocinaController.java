@@ -1,10 +1,7 @@
 package co.edu.escuelaing.cvds.lab7.controller;
 import co.edu.escuelaing.cvds.lab7.model.Menu;
-import co.edu.escuelaing.cvds.lab7.model.User;
 import co.edu.escuelaing.cvds.lab7.service.MenuService;
 import co.edu.escuelaing.cvds.lab7.service.PreferenciasService;
-import co.edu.escuelaing.cvds.lab7.service.TicketService;
-import co.edu.escuelaing.cvds.lab7.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +23,7 @@ public class CocinaController {
         this.preferenciasService = preferenciasService;
     }
     @GetMapping("/cocina")
-    public String Cocina(Model model) {
+    public String mostrarCocina(Model model) {
         List<Menu> menuItems = menuService.getAllMenuItems();
         model.addAttribute("menuItems", menuItems);
         return "cocina"; // Ajusta el nombre según tu estructura de carpetas y archivos

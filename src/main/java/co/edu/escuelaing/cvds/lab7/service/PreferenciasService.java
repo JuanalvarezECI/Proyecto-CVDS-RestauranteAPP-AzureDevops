@@ -1,5 +1,4 @@
 package co.edu.escuelaing.cvds.lab7.service;
-import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.model.Preferencias;
 import co.edu.escuelaing.cvds.lab7.repository.PreferenciasRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,15 +28,11 @@ public class Lab7Application {
 	}
 
 	@Bean
-	public CommandLineRunner run() throws Exception {
-		return (args) -> {
-			System.out.println("agregando usuarios....");
+	public CommandLineRunner run(){
+		return args -> {
 			userService.guardarUsuarios();
-			System.out.println("agregando menus....");
 			menuService.guardarMenus();
-			System.out.println("agregando menus....");
 			menuService.aplicarDescuento();
-			System.out.println("agregando preferencias....");
 			preferenciasService.preferenciasprueba();
 		};
 	}

@@ -23,7 +23,6 @@ public class LoginController {
     @PostMapping
     public String login(String username, String password, String plato, Model model) {
         User user = userService.findUserByUsername(username);
-        System.out.println(user);
         if (user != null && user.getPassword().equals(password)) {
             // Autenticación exitosa
             if (username.endsWith(".jc")) {

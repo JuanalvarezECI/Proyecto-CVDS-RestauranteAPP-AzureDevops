@@ -2,8 +2,7 @@ package co.edu.escuelaing.cvds.lab7.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import org.springframework.cglib.core.Local;
-import java.time.LocalDate;
+
 @Entity
 @Table(name = "menu")
 public class Menu {
