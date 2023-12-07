@@ -2,7 +2,9 @@
             body {
                 font-family: Arial, sans-serif;
                 background-attachment: fixed;
+                text-align: right;
                 color: #ffffff;
+                display: flex;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -71,4 +73,17 @@
                              text-align: center;
                              margin-top: 20px;
                              font-size: 1.2em;
+            }
+
+            .error-message {
+                color: #ff0000; /* Rojo para indicar errores */
+                margin-top: 10px;
+            }
+
+            div.form-container {
+                            background-color: rgba(0, 0, 0, 0.7);
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+                            padding: 40px;
+                            width: 800px;
+                            border-radius: 10px;
             }
