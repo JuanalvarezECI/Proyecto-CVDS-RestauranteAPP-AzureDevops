@@ -1,6 +1,4 @@
 package co.edu.escuelaing.cvds.lab7;
-
-import co.edu.escuelaing.cvds.lab7.model.Ticket;
 import co.edu.escuelaing.cvds.lab7.service.MenuService;
 import co.edu.escuelaing.cvds.lab7.service.PreferenciasService;
 import co.edu.escuelaing.cvds.lab7.service.TicketService;
