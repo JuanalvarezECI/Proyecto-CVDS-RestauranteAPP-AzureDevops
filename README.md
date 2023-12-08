@@ -1,3 +1,5 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=JuanalvarezECI_proyecto-cvds)](https://sonarcloud.io/summary/new_code?id=JuanalvarezECI_proyecto-cvds)
+
 # Cvds Proyecto-Restaurante K1
 
 ## Sprint 4 - Presentaciónn
