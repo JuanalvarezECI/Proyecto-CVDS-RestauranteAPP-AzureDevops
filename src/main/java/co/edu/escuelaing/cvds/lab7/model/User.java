@@ -40,4 +40,9 @@ public class User {
 
         return correo;
     }
+    public void setUsername(String username) {this.username = username;}
+    public void setPassword(String password) {this.password = password;}
+    public void setEmail(String correo) {this.correo = correo;}
+
+
 }
