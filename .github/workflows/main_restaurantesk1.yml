@@ -84,6 +84,6 @@ jobs:
           -Dsonar.projectKey=JuanalvarezECI_proyecto-cvds
           -Dsonar.java.coverage.reportPaths=target/site/jacoco-aggregate/jacoco.xml
           -Dsonar.sources=src/
-          -Dsonar.test.exclusions=src/test/**
+          -Dsonar.test.inclusions=src/test/**
           -Dsonar.tests=src/test/
           -Dsonar.verbose=true
