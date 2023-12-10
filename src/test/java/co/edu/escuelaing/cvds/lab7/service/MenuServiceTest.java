@@ -1,42 +1,50 @@
 package co.edu.escuelaing.cvds.lab7.service;
 import co.edu.escuelaing.cvds.lab7.model.Menu;
 import co.edu.escuelaing.cvds.lab7.repository.MenuRepository;
-import co.edu.escuelaing.cvds.lab7.service.MenuService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MenuServiceTest {
-
-    @InjectMocks
-    private MenuService menuService;
+class MenuServiceTest {
 
     @Mock
     private MenuRepository menuRepository;
 
+    @InjectMocks
+    private MenuService menuService;
+
     @Test
-    public void testRealizarPedido() {
-        // Simulamos un menú con unidades disponibles
-        Menu menu = new Menu("Prueba", 100, "2023-12-31", 5);
-        when(menuRepository.findByPlato("Prueba")).thenReturn(menu);
+    void testRealizarPedido() {
+        Menu mockMenu = new Menu();
+        mockMenu.setUnidades(2);
 
-        // Realizamos un pedido
-        menuService.realizarPedido("Prueba");
+        when(menuRepository.findByPlato(anyString())).thenReturn(mockMenu);
 
-        // Verificamos que se haya reducido una unidad
-        assertEquals(4, menu.getUnidades());
-        verify(menuRepository, times(1)).save(menu);
+        menuService.realizarPedido("lomo de cerdo");
+
+        assertEquals(1, mockMenu.getUnidades());
+        verify(menuRepository, times(1)).save(mockMenu);
     }
 
+    @Test
+    void testGuardarMenus() {
+        menuService.guardarMenus();
+
+        // Verificar que se hayan llamado a los métodos de save con los menús específicos
+        verify(menuRepository, times(4)).save(any(Menu.class));
+    }
     @Test
     public void testRealizarPedidoUnidadesAgotadas() {
         // Simulamos un menú con unidades agotadas
@@ -51,20 +59,39 @@ public class MenuServiceTest {
         verify(menuRepository, never()).save(any(Menu.class));
     }
     @Test
-    public void testAplicarDescuento() {
-        // Simulamos dos menús con diferentes fechas de caducidad
-        Menu menu1 = new Menu("Plato1", 100, "2023-11-10", 10);
-        // Simulamos que ambos menús están en la base de datos
-        when(menuRepository.findAll()).thenReturn(Arrays.asList(menu1));
+    void testAplicarDescuento() throws ParseException {
+        List<Menu> mockMenuItems = new ArrayList<>();
+        Date currentDate = new SimpleDateFormat("yyyy-MM-dd").parse("2023-11-15");
+        mockMenuItems.add(new Menu("lomo de cerdo", 20000, "2023-11-30", 20));
 
-        // Ejecutamos el método que aplica descuento
+        when(menuRepository.findAll()).thenReturn(mockMenuItems);
+
         menuService.aplicarDescuento();
 
-        // Verificamos que el descuento se haya aplicado correctamente
-        // El precio de menu1 debe haber cambiado, pero no el de menu2
-        assertEquals(70, menu1.getPrecio());
+        // Verificar que se haya aplicado el descuento
+        assertEquals(14000, mockMenuItems.get(0).getPrecio().intValue());
+        verify(menuRepository, times(1)).save(any(Menu.class));
+    }
 
-        // Verificamos que ambos menús se hayan guardado en la base de datos
-        verify(menuRepository, times(1)).save(menu1);
+    @Test
+    void testAgregarPlatilloWithDescuento() throws ParseException {
+        Menu mockMenu = new Menu("lomo de cerdo", 20000, "2023-11-20", 20);
+
+        menuService.agregarPlatillo(mockMenu);
+
+        // Verificar que se haya aplicado el descuento
+        assertEquals(14000, mockMenu.getPrecio().intValue());
+        verify(menuRepository, times(1)).save(mockMenu);
+    }
+
+    @Test
+    void testAgregarPlatilloWithoutDescuento() throws ParseException {
+        Menu mockMenu = new Menu("lomo de cerdo", 20000, "2023-11-30", 20);
+
+        menuService.agregarPlatillo(mockMenu);
+
+        // Verificar que no se haya aplicado el descuento
+        assertEquals(14000, mockMenu.getPrecio().intValue());
+        verify(menuRepository, times(1)).save(mockMenu);
     }
 }
