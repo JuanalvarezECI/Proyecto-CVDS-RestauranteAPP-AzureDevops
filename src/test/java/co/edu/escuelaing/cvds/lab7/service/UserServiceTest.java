@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
 
     @InjectMocks
     private UserService userService;
@@ -23,7 +23,7 @@ public class UserServiceTest {
     private UserRepository userRepository;
 
     @Test
-    public void testFindUserByUsername() {
+    void testFindUserByUsername() {
         // Simulamos algunos usuarios en el repositorio
         User user3 = new User("juan.jc", "demo", "juan@demo.jc.com");
         List<User> userList = Arrays.asList(user3);

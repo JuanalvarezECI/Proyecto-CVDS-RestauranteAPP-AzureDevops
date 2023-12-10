@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class TicketServiceTest {
+class TicketServiceTest {
 
     @InjectMocks
     private TicketService ticketService;
@@ -20,7 +20,7 @@ public class TicketServiceTest {
     private TicketRepository ticketRepository;
 
     @Test
-    public void testRealizarPedido() {
+    void testRealizarPedido() {
         // Simulamos un nombre de plato para el pedido
         String nombrePlato = "Plato1";
 
